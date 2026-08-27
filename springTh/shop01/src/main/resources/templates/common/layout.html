@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>商品管理</title>
+</head>
+<body>
+
+	<!-- ヘッダー -->
+	<header th:fragment="header" class="app-header">
+		<h1><a th:href="@{/items}">商品管理</a></h1>
+	</header>
+
+	<!-- メッセージ表示エリア -->
+	<div th:fragment="messages" class="messages">
+		<p class="message message-success" th:if="${successMessage}" th:text="${successMessage}"></p>
+		<p class="message message-error" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+	</div>
+
+	<!-- フッター -->
+	<footer th:fragment="footer" class="app-footer">
+		<p>商品管理システム</p>
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>商品更新</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<div th:replace="~{common/layout :: header}"></div>
+
+	<main class="container">
+
+		<h2>商品更新</h2>
+
+		<div th:replace="~{common/layout :: messages}"></div>
+
+		<form th:action="@{/items/edit}" th:object="${itemForm}" method="post" class="item-form">
+
+			<!-- 商品IDは変更不可。値の送信は hidden が担当する -->
+			<input type="hidden" th:field="*{id}">
+
+			<div class="form-row">
+				<label for="idDisplay">商品ID</label>
+				<!-- 表示のみ。th:field を使うと id 属性が hidden と重複するため th:value を使う -->
+				<input type="text" id="idDisplay" th:value="*{id}" readonly>
+				<span class="error" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+			</div>
+
+			<div class="form-row">
+				<label for="name">商品名</label>
+				<input type="text" th:field="*{name}" maxlength="100">
+				<span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+			</div>
+
+			<div class="form-row">
+				<label for="price">値段</label>
+				<input type="number" th:field="*{price}" min="0">
+				<span class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+			</div>
+
+			<div class="form-row">
+				<label for="stock">在庫</label>
+				<input type="number" th:field="*{stock}" min="0">
+				<span class="error" th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"></span>
+			</div>
+
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">更新</button>
+				<a class="btn" th:href="@{/items}">戻る</a>
+			</div>
+
+		</form>
+
+	</main>
+
+	<div th:replace="~{common/layout :: footer}"></div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>商品一覧</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<script th:src="@{/js/common.js}" defer></script>
+</head>
+<body>
+
+	<div th:replace="~{common/layout :: header}"></div>
+
+	<main class="container">
+
+		<h2>商品一覧</h2>
+
+		<div th:replace="~{common/layout :: messages}"></div>
+
+		<p class="toolbar">
+			<a class="btn btn-primary" th:href="@{/items/add}">新規登録</a>
+		</p>
+
+		<!-- 0件の場合 -->
+		<p class="empty" th:if="${#lists.isEmpty(items)}">商品がありません。</p>
+
+		<!-- 1件以上の場合 -->
+		<table class="item-table" th:unless="${#lists.isEmpty(items)}">
+			<thead>
+				<tr>
+					<th>商品ID</th>
+					<th>商品名</th>
+					<th class="num">値段</th>
+					<th class="num">在庫</th>
+					<th class="ops">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item : ${items}">
+					<td th:text="${item.id}"></td>
+					<td th:text="${item.name}"></td>
+					<td class="num" th:text="${#numbers.formatInteger(item.price, 1, 'COMMA')} + '円'"></td>
+					<td class="num" th:text="${item.stock}"></td>
+					<td class="ops">
+						<a class="btn" th:href="@{/items/edit/{id}(id=${item.id})}">更新</a>
+						<form th:action="@{/items/delete/{id}(id=${item.id})}" method="post" data-confirm-delete>
+							<button type="submit" class="btn btn-danger">削除</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</main>
+
+	<div th:replace="~{common/layout :: footer}"></div>
+
+</body>
+</html>

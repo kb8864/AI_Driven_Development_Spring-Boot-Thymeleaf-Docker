@@ -1,0 +1,206 @@
+@charset "UTF-8";
+
+/* ===== 全体 ===== */
+body {
+	margin: 0;
+	font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+	color: #333;
+	background-color: #f7f7f7;
+	line-height: 1.6;
+}
+
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 24px 16px 48px;
+}
+
+h2 {
+	margin: 0 0 16px;
+	font-size: 20px;
+	border-left: 4px solid #2d7d46;
+	padding-left: 10px;
+}
+
+/* ===== ヘッダー・フッター ===== */
+.app-header {
+	background-color: #2d7d46;
+	color: #fff;
+	padding: 12px 16px;
+}
+
+.app-header h1 {
+	max-width: 900px;
+	margin: 0 auto;
+	font-size: 18px;
+}
+
+.app-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.app-footer {
+	border-top: 1px solid #ddd;
+	padding: 12px 16px;
+	text-align: center;
+	font-size: 12px;
+	color: #777;
+}
+
+/* ===== メッセージ ===== */
+.messages {
+	margin-bottom: 16px;
+}
+
+.message {
+	margin: 0 0 8px;
+	padding: 10px 12px;
+	border-radius: 4px;
+	font-size: 14px;
+}
+
+.message-success {
+	background-color: #e6f4ea;
+	border: 1px solid #2d7d46;
+	color: #1d5c33;
+}
+
+.message-error {
+	background-color: #fdecea;
+	border: 1px solid #c0392b;
+	color: #a02c20;
+}
+
+/* ===== ボタン ===== */
+.toolbar {
+	margin: 0 0 12px;
+}
+
+.btn {
+	display: inline-block;
+	padding: 6px 14px;
+	border: 1px solid #bbb;
+	border-radius: 4px;
+	background-color: #fff;
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background-color: #eee;
+}
+
+.btn-primary {
+	background-color: #2d7d46;
+	border-color: #2d7d46;
+	color: #fff;
+}
+
+.btn-primary:hover {
+	background-color: #24653a;
+}
+
+.btn-danger {
+	background-color: #c0392b;
+	border-color: #c0392b;
+	color: #fff;
+}
+
+.btn-danger:hover {
+	background-color: #a02c20;
+}
+
+/* ===== 一覧テーブル ===== */
+.item-table {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: #fff;
+}
+
+.item-table th,
+.item-table td {
+	border: 1px solid #ddd;
+	padding: 8px 10px;
+	font-size: 14px;
+}
+
+.item-table th {
+	background-color: #eef2ee;
+	text-align: left;
+}
+
+.item-table .num {
+	text-align: right;
+	white-space: nowrap;
+}
+
+.item-table .ops {
+	width: 160px;
+	white-space: nowrap;
+	text-align: center;
+}
+
+/* 一覧の削除ボタンを更新ボタンと横並びにする */
+.item-table .ops form {
+	display: inline-block;
+	margin: 0 0 0 4px;
+}
+
+.empty {
+	padding: 16px;
+	background-color: #fff;
+	border: 1px dashed #bbb;
+	color: #777;
+}
+
+/* ===== 入力フォーム ===== */
+.item-form {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 20px;
+	max-width: 520px;
+}
+
+.form-row {
+	margin-bottom: 16px;
+}
+
+.form-row label {
+	display: block;
+	margin-bottom: 4px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.form-row input {
+	width: 100%;
+	padding: 6px 8px;
+	border: 1px solid #bbb;
+	border-radius: 4px;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+
+.form-row input[readonly] {
+	background-color: #eee;
+	color: #666;
+}
+
+.error {
+	display: block;
+	margin-top: 4px;
+	color: #c0392b;
+	font-size: 13px;
+}
+
+.form-actions {
+	margin-top: 24px;
+}
+
+.form-actions .btn {
+	margin-right: 8px;
+}
